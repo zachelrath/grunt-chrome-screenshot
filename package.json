@@ -1,0 +1,38 @@
+{
+  "name": "grunt-chrome-screenshot",
+  "version": "0.1.0",
+  "description": "Grunt plugin for taking screenshots of HTML files with headless Chrome / Puppeteer",
+  "scripts": {
+    "lint": "eslint tasks"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachelrath/grunt-chrome-screenshot.git"
+  },
+  "keywords": [
+    "grunt",
+    "plugin",
+    "headless",
+    "chrome",
+    "screenshot",
+    "puppeteer"
+  ],
+  "author": "Zach McElrath",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zachelrath/grunt-chrome-screenshot/issues"
+  },
+  "homepage": "https://github.com/zachelrath/grunt-chrome-screenshot#readme",
+  "devDependencies": {
+    "eslint": "4.10.x"
+  },
+  "dependencies": {
+    "puppeteer": "1.6.x"
+  },
+  "peerDependencies": {
+    "grunt": ">=0.4.0"
+  },
+  "engines": {
+    "node": ">= 8.9.4"
+  }
+}
