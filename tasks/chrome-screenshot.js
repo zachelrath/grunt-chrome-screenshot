@@ -7,14 +7,21 @@ module.exports = function(grunt) {
 
   async function init(options, done) {
 
-    const browser = await puppeteer.launch({
-      args: options.chromeArgs || [],
-      executablePath: options.chromeExecutable,
-      env: options.env,
-      headless: true,
-      ignoreHTTPSErrors: true,
-    });
     const targets = options.targets;
+    let browser;
+
+    try {
+      browser = await puppeteer.launch({
+        args: options.chromeArgs || [],
+        executablePath: options.chromeExecutable,
+        env: options.env,
+        headless: true,
+        ignoreHTTPSErrors: true,
+      });
+    } catch (err) {
+      grunt.fail.fatal("Unable to launch Chrome", err);
+      done(false);
+    }
 
     try {
       await Promise.all(targets.map(({
@@ -89,7 +96,7 @@ module.exports = function(grunt) {
 
     if (!opts.targets.length) {
       grunt.fail.fatal("You must provide at least one screenshot target.");
-      return;
+      done(false);
     }
 
     init(opts, done);
